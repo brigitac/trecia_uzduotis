@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 #define dydis 250
-using std::cout; using std::cin; using std::endl; using std::string;
+using std::cout; using std::cin; using std::endl; using std::string; using std::setprecision; using std::fixed;
 double galBalas_vidurkis(int mas[],int nd_sk, int egz_paz);
 int main()
 {
@@ -25,18 +26,22 @@ int main()
     auto egz_paz=0;
     cin >> egz_paz;
     double galBalas=galBalas_vidurkis(masyvas,nd_sk,egz_paz);
-    cout.precision(3);
-    cout<<"Galutinis balas yra: "<<galBalas<<endl;
+    cout<<"Studento, vardu "<<vardas<<" ir pavarde "<<pavarde<<", su namų darbų pažymiais: ";
+    for (auto i=0;i<nd_sk;i++)
+    {
+        cout << masyvas[i] <<" ";
+    }
+    cout<<"ir galutiniu egzamino pažymiu "<<egz_paz<<", galutinis balas yra: "<<setprecision(2) << fixed<<galBalas<<endl;
     return 0;
 }
 double galBalas_vidurkis(int mas[],int nd_sk, int egz_paz)
 {
-    double tarpinis=0;
+    double vidurkis=0;
     for (auto i=0;i<=nd_sk;i++)
     {
-        tarpinis += mas[i];
+        vidurkis += mas[i];
     }
-    double vidurkis = tarpinis/nd_sk;
+    vidurkis /= nd_sk;
     double galBalas=(0.6*egz_paz)+(0.4*vidurkis);
     return galBalas;
 }
