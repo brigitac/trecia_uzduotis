@@ -28,7 +28,7 @@ int main()
     double galBalas=0;
     cin>>vm;
     cout<<"Studento, vardu "<<vardas<<" ir pavarde "<<pavarde<<", su namų darbų pažymiais: ";
-    for (auto i=0;i<v.size();i++) cout << v[i] <<" ";
+    for (unsigned long i=0;i<v.size();i++) cout << v[i] <<" ";
     if(vm==1) galBalas=galBalas_vidurkis(v,egz_paz);
     else galBalas=galBalas_mediana(v,egz_paz);
     cout<<"ir galutiniu egzamino pažymiu "<<egz_paz<<", galutinis balas yra: "<<setprecision(2) << fixed<<galBalas<<endl;
@@ -37,7 +37,7 @@ int main()
 double galBalas_vidurkis(vector<int> v, int egz_paz)
 {
     double vidurkis=0;
-    for (auto i=0;i<v.size();i++) vidurkis += v[i];
+    for (unsigned long i=0;i<v.size();i++) vidurkis += v[i];
     vidurkis /= v.size();
     double galBalas=(0.6*egz_paz)+(0.4*vidurkis);
     return galBalas;
