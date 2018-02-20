@@ -16,38 +16,37 @@ int main()
     cout << "Įveskite, kokius pažymius "<<vardas<<" "<<pavarde<<" gavo iš namų darbų, norėdami užbaigti įveskite '0': ";
     int dydis=1;
     int *mas=new int[dydis];
-    auto nd_paz=0, nd_sk=0;
+    int nd_paz=0, nd_sk=0;
     cin>>nd_paz;
-    while (nd_paz!=0)
+    while (nd_paz!=0)     //nuskaitomi ivesti pazymiai
     {
-        nd_sk++;
+        nd_sk++;        //skaiciuojamas pazymiu skaicius
         mas=masyvo_tvarkymas(mas,nd_paz,nd_sk,&dydis);
         cin>>nd_paz;
     }
     cout << "Įveskite, kiek "<<vardas<<" "<<pavarde<<" gavo iš egzamino: ";
-    auto egz_paz=0;
+    int egz_paz=0;
     cin >> egz_paz;
     cout<<"Jei norite skaičiuoti galutinį balą pagal namų darbų vidurkį, įveskite 1, jeigu pagal mediana - bet kokį kitą simbolį: ";
-    auto vm=0;
+    int vm=0;
     double galBalas=0;
     cin>>vm;
     cout<<"Studento, vardu "<<vardas<<" ir pavarde "<<pavarde<<", su namų darbų pažymiais: ";
-    for (auto i=0;i<nd_sk;i++) cout << mas[i] <<" ";
+    //isvedami pazymiai
+    for (int i=0;i<nd_sk;i++) cout << mas[i] <<" ";
     if(vm==1) galBalas=galBalas_vidurkis(mas,nd_sk,egz_paz);
     else galBalas=galBalas_mediana(mas,nd_sk,egz_paz);
     cout<<"ir galutiniu egzamino pažymiu "<<egz_paz<<", galutinis balas yra: "<<setprecision(2) << fixed<<galBalas<<endl;
     return 0;
 }
-
 double galBalas_vidurkis(int mas[],int nd_sk, int egz_paz)
 {
     double vidurkis=0;
-    for (auto i=0;i<nd_sk;i++) vidurkis += mas[i];
+    for (int i=0;i<nd_sk;i++) vidurkis += mas[i];     //sudedami visi nd_pazymiai
     vidurkis /= nd_sk;
     double galBalas=(0.6*egz_paz)+(0.4*vidurkis);
     return galBalas;
 }
-
 double galBalas_mediana(int mas[], int nd_sk, int egz_paz)
 {
     //sutvarkau masyva
@@ -82,7 +81,7 @@ int* masyvo_tvarkymas(int *mas,int nd_paz,int nd_sk, int *dydis)
     else
     {
         int *mas2=new int[(*dydis)+1];
-        for(auto i=0;i<(*dydis);i++) mas2[i]=mas[i];
+        for(int i=0;i<(*dydis);i++) mas2[i]=mas[i]; //nukopinu viena masyva i kita
         mas2[(*dydis)]=nd_paz;
         delete[] mas;
         (*dydis)++;
