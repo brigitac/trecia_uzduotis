@@ -92,7 +92,7 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
     sort(sv.begin(), sv.end(), compare);
     for(unsigned long i=0; i<o;i++) //irasineju rezultatus i kita faila apie visus mokinius
     {
-        failas2<<left<<setw(20)<<sv[i].pavarde<<left<<setw(15)<<sv[i].vardas<<left<<setw(20)<<setprecision(2) << fixed<<sv[i].galBalas_v<<sv[i].galBalas_m<<endl;
+        failas2<<left<<setw(19)<<sv[i].pavarde<<left<<setw(15)<<sv[i].vardas<<left<<setw(20)<<setprecision(2) << fixed<<sv[i].galBalas_v<<sv[i].galBalas_m<<endl;
     }
     failas1.close();
     failas2.close();
@@ -157,4 +157,3 @@ void generuojami_sk(vector<int>& v, int *egz_paz, int nd_sk)
     for(int i=0; i<nd_sk;++i) v.push_back(dist(mt)); //generuoju nd pazymius ir issisaugau i vektoriu
     *egz_paz=dist(mt);
 }
-
