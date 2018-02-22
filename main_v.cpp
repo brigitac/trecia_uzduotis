@@ -6,7 +6,7 @@
 #include <fstream>
 #include "galbalas.h"
 #include "ivedimas.h"
-#include "failas.h"
+#include "failai.h"
 using std::cout; using std::cin; using std::string;using std::vector;
 int main (int, char *argv[])
 {

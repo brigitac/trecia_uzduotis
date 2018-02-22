@@ -4,17 +4,24 @@
 #include <vector>
 #include <random>
 #include <fstream>
-#include "failas.h"
+#include "failai.h"
 #include "galbalas.h"
 bool compare(const studentas &lhs, const studentas &rhs) {return lhs.pavarde<rhs.pavarde;}
 void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *argv[], int nd_sk, int nd_paz)
 {
     vector<studentas>sv;
     ifstream failas1;
-    failas1.open (argv[1]);
-    if (!failas1)
+    try
     {
-        cout << "Duomenu failas nerastas";
+        failas1.open (argv[1]);
+        if (failas1.is_open()) {
+        } else {
+            throw std::exception();
+        }
+    }
+    catch(std::exception &excp)
+    {
+        cout << "Duomenu failas nerastas"<<excp.what();
         exit(1);
     }
     ofstream failas2;
