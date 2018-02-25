@@ -30,7 +30,7 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
     failas2.open(argv[2]);
     if (!failas2)
     {
-        cout << "Rezultatų failo atidaryti/sukurti nepavyko";
+        cout << "Rezultatų failo atidaryti/sukurti nepavyko"<<endl;
         exit(1);
     }
     failas2<<"Tie geresni:"<<endl<<left<<setw(20)<<"Pavardė"<<left<<setw(15)<<"Vardas"<<left<<setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<endl;
