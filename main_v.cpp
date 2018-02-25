@@ -15,9 +15,15 @@ int main (int, char *argv[])
     vector<int>v;
     int egz_paz=0, nd_paz=0, nd_sk=0;
     double galBalas=0;
-    cout<<"Jei norite duomenis suvesti, įveskite 1, jei norite nuskaityti iš failo - bet kokį kitą simbolį: ";
+    cout<<"Jei norite duomenis suvesti, įveskite 1, jei norite nuskaityti iš failo - bet kokį kitą skaičių: ";
     int f=0;
     cin>>f;
+    if (cin.fail())
+    {
+        cin.clear();
+        cout<<"KĄ TU ČIA VEDI?!"<<endl;
+        exit(1);
+    }
     if (f==1) duomenu_ivedimas(vardas,pavarde,egz_paz,v,galBalas,nd_sk,nd_paz);
     else failai(vardas,pavarde,egz_paz,v,argv,nd_sk,nd_paz);
     return 0;

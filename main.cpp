@@ -27,7 +27,7 @@ int main()
     cout << "Įveskite, kiek "<<vardas<<" "<<pavarde<<" gavo iš egzamino: ";
     int egz_paz=0;
     cin >> egz_paz;
-    cout<<"Jei norite skaičiuoti galutinį balą pagal namų darbų vidurkį, įveskite 1, jeigu pagal mediana - bet kokį kitą simbolį: ";
+    cout<<"Jei norite skaičiuoti galutinį balą pagal namų darbų vidurkį, įveskite 1, jeigu pagal mediana - bet kokį kitą skaičių: ";
     int vm=0;
     double galBalas=0;
     cin>>vm;

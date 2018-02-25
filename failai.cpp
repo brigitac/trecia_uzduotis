@@ -16,19 +16,20 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
         failas1.open (argv[1]);
         if (failas1.is_open()) {
         } else {
-            throw std::exception();
+            throw exception();
         }
     }
-    catch(std::exception &excp)
+    catch(std::exception &e)
     {
-        cout << "Duomenu failas nerastas"<<excp.what();
+        e.what();
+        cout << "Duomenų failas nerastas."<<endl;
         exit(1);
     }
     ofstream failas2;
     failas2.open(argv[2]);
     if (!failas2)
     {
-        cout << "Rezultatu failas nerastas";
+        cout << "Rezultatų failo atidaryti/sukurti nepavyko";
         exit(1);
     }
     failas2<<left<<setw(20)<<"Pavardė"<<left<<setw(15)<<"Vardas"<<left<<setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<endl;
