@@ -9,7 +9,8 @@
 bool compare(const studentas &lhs, const studentas &rhs) {return lhs.pavarde<rhs.pavarde;}
 void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *argv[], int nd_sk, int nd_paz)
 {
-    vector<studentas>sv;
+    vector<studentas>good;
+    vector<studentas>bad;
     ifstream failas1;
     try
     {
@@ -32,7 +33,7 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
         cout << "Rezultatų failo atidaryti/sukurti nepavyko";
         exit(1);
     }
-    failas2<<left<<setw(20)<<"Pavardė"<<left<<setw(15)<<"Vardas"<<left<<setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<endl;
+    failas2<<"Tie geresni:"<<endl<<left<<setw(20)<<"Pavardė"<<left<<setw(15)<<"Vardas"<<left<<setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<endl;
     char simbol;
     do //skaiciuosiu, kiek yra zodziu pirmoj eilutej
     {
@@ -48,7 +49,7 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
     }while (simbol!='\n');
     nd_sk-=3; //suzinau, kiek buvo namu darbu, is visu pirmoj eilutej zodziu atemus 3, nes 3 zodziziai yra vardui, pavardei ir egzamino pazymiui
     //issisaugau reikiamus duomenis
-    unsigned long o=0;
+    unsigned long o=0, u=0;
     double galBalas_m=0;
     double galBalas_v=0;
     while(!failas1.eof()) //skaitau faila iki pabaigos
@@ -60,20 +61,39 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
             v.push_back(nd_paz);
         }
         failas1>>egz_paz;
+        double vidurkis=0;
+        for (unsigned long i=0;i<v.size();i++) vidurkis += v[i]; //sudedineju nd pazymius
+        vidurkis /= v.size();
+        if (vidurkis>=6)
+        {
         galBalas_m=galBalas_mediana(v,egz_paz);
         galBalas_v=galBalas_vidurkis(v,egz_paz);
-        sv.push_back(studentas());
-        sv[o].vardas=vardas;
-        sv[o].pavarde=pavarde;
-        sv[o].galBalas_m=galBalas_m;
-        sv[o].galBalas_v=galBalas_v;
-        vector<int>().swap(v);
+        good.push_back(studentas());
+        good[o].vardas=vardas;
+        good[o].pavarde=pavarde;
+        good[o].galBalas_m=galBalas_m;
+        good[o].galBalas_v=galBalas_v;
         o++;
+        }
+        else
+        {
+            bad.push_back(studentas());
+            bad[u].vardas=vardas;
+            bad[u].pavarde=pavarde;
+            u++;
+        }
+        vector<int>().swap(v);
     }
-    sort(sv.begin(), sv.end(), compare);
+    sort(good.begin(), good.end(), compare);
     for(unsigned long i=0; i<o;i++) //irasineju rezultatus i kita faila apie visus mokinius
     {
-        failas2<<left<<setw(19)<<sv[i].pavarde<<left<<setw(15)<<sv[i].vardas<<left<<setw(20)<<setprecision(2) << fixed<<sv[i].galBalas_v<<sv[i].galBalas_m<<endl;
+        failas2<<left<<setw(19)<<good[i].pavarde<<left<<setw(15)<<good[i].vardas<<left<<setw(20)<<setprecision(2) << fixed<<good[i].galBalas_v<<good[i].galBalas_m<<endl;
+    }
+    sort(bad.begin(), bad.end(), compare);
+    failas2<<endl<<"Vargšiukai:"<<endl<<left<<setw(20)<<"Pavardė"<<left<<setw(15)<<"Vardas"<<endl;
+    for(unsigned long i=0; i<u;i++) //irasineju rezultatus i kita faila apie visus mokinius
+    {
+        failas2<<left<<setw(19)<<bad[i].pavarde<<left<<setw(15)<<bad[i].vardas<<endl;
     }
     failas1.close();
     failas2.close();
