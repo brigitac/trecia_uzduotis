@@ -4,6 +4,7 @@
 #include <vector>
 #include <random>
 #include <fstream>
+#include <chrono>
 #include "galbalas.h"
 #include "ivedimas.h"
 #include "failai.h"
@@ -38,7 +39,11 @@ int main (int, char *argv[])
             cout<<"KĄ TU ČIA VEDI?!"<<endl;
             exit(1);
         }
+        auto start = std::chrono::high_resolution_clock::now();
         sukurimas(kiekis,argv,nd_sk);
+        auto finish = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed = finish - start;
+        cout << "Elapsed time: " << elapsed.count() << " s\n";
     }
     return 0;
 }

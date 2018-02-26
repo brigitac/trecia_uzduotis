@@ -5,7 +5,6 @@
 #include <random>
 #include <fstream>
 #include "sukurimas.h"
-#include "galbalas.h"
 int belekoks()
 {
     std::random_device rd;
