@@ -16,7 +16,7 @@ void sukurimas(int kiekis, char *argv[], int nd_sk)
 {
     int k=kiekis;
     int s=0;
-    while(k>0)
+    while(k>0) //suskaiciuoju skaitmenu kieki kintamajame kiekis
     {
         k/=10;
         s++;
@@ -31,12 +31,12 @@ void sukurimas(int kiekis, char *argv[], int nd_sk)
     }
     sukurtas<<left<<setw(9+s)<<"Pavarde"<<left<<setw(9+s)<<"Vardas";
     nd_sk=5;
-    for(int i=0; i<nd_sk;i++)
+    for(int i=0; i<nd_sk;i++) //isspausdinu ND1 ND2 ... ND5
     {
         sukurtas<<left<<setw(4)<<"ND"+to_string(i+1);
     }
     sukurtas<<"Egzaminas "<<endl;
-    for(int i=0; i<kiekis;i++)
+    for(int i=0; i<kiekis;i++) // isspausdinu 'kiekis' studentu irasu 
     {
         sukurtas<<left<<setw(9+s)<<"Pavarde"+to_string(i+1)<<left<<setw(9+s)<<"Vardas"+to_string(i+1);
         for(int j=0; j<nd_sk;j++)

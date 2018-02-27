@@ -6,6 +6,7 @@
 #include <fstream>
 #include "failai.h"
 #include "galbalas.h"
+#include "struktura.h"
 bool compare(const studentas &lhs, const studentas &rhs) {return lhs.pavarde<rhs.pavarde;}
 void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *argv[], int nd_sk, int nd_paz)
 {

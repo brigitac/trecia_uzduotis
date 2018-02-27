@@ -9,9 +9,12 @@
 #include "ivedimas.h"
 #include "failai.h"
 #include "sukurimas.h"
+#include "struktura.h"
 using std::cout; using std::cin; using std::string;using std::vector;
+void wrong();
 int main (int, char *argv[])
 {
+    auto start = std::chrono::high_resolution_clock::now();
     string vardas;
     string pavarde;
     vector<int>v;
@@ -20,12 +23,7 @@ int main (int, char *argv[])
     cout<<"Jei norite duomenis suvesti, įveskite 1, jei norite nuskaityti iš failo - 2, jei norite sukurti atsitiktinį studentų failą - bet kokį kitą skaičių: ";
     int f=0;
     cin>>f;
-    if (cin.fail())
-    {
-        cin.clear();
-        cout<<"KĄ TU ČIA VEDI?!"<<endl;
-        exit(1);
-    }
+    if (cin.fail()) wrong();
     if (f==1) duomenu_ivedimas(vardas,pavarde,egz_paz,v,galBalas,nd_sk,nd_paz);
     else if (f==2) failai(vardas,pavarde,egz_paz,v,argv,nd_sk,nd_paz);
     else
@@ -33,17 +31,18 @@ int main (int, char *argv[])
         cout<<"Iveskite,kiek įrašų norite, kad būtų sugeneruota: ";
         int kiekis=0;
         cin>>kiekis;
-        if (cin.fail())
-        {
-            cin.clear();
-            cout<<"KĄ TU ČIA VEDI?!"<<endl;
-            exit(1);
-        }
-        auto start = std::chrono::high_resolution_clock::now();
+        if (cin.fail()) wrong();
         sukurimas(kiekis,argv,nd_sk);
-        auto finish = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> elapsed = finish - start;
-        cout << "Elapsed time: " << elapsed.count() << " s\n";
+        failai(vardas,pavarde,egz_paz,v,argv,nd_sk,nd_paz);
     }
+    auto finish = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = finish - start;
+    cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
     return 0;
+}
+void wrong()
+{
+    cin.clear();
+    cout<<"KĄ TU ČIA VEDI?!"<<endl;
+    exit(1);
 }
