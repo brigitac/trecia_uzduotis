@@ -14,6 +14,7 @@ int belekoks()
 }
 void sukurimas(int kiekis, char *argv[], int nd_sk)
 {
+    auto start = std::chrono::high_resolution_clock::now();
     int k=kiekis;
     int s=0;
     while(k>0) //suskaiciuoju skaitmenu kieki kintamajame kiekis
@@ -46,6 +47,9 @@ void sukurimas(int kiekis, char *argv[], int nd_sk)
         sukurtas<<belekoks()<<endl;
     }
     sukurtas.close();
+    auto finish = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = finish - start;
+    cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
 }
 
 

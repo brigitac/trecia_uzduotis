@@ -14,7 +14,6 @@ using std::cout; using std::cin; using std::string;using std::vector;
 void wrong();
 int main (int, char *argv[])
 {
-    auto start = std::chrono::high_resolution_clock::now();
     string vardas;
     string pavarde;
     vector<int>v;
@@ -52,9 +51,6 @@ int main (int, char *argv[])
         if (cin.fail()) wrong();
         sukurimas(kiekis,argv,nd_sk);
     }
-    auto finish = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = finish - start;
-    cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
     return 0;
 }
 void wrong()
