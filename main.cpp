@@ -37,6 +37,7 @@ int main()
     if(vm==1) galBalas=galBalas_vidurkis(mas,nd_sk,egz_paz);
     else galBalas=galBalas_mediana(mas,nd_sk,egz_paz);
     cout<<"ir galutiniu egzamino pažymiu "<<egz_paz<<", galutinis balas yra: "<<setprecision(2) << fixed<<galBalas<<endl;
+    delete[] mas;
     return 0;
 }
 double galBalas_vidurkis(int mas[],int nd_sk, int egz_paz)

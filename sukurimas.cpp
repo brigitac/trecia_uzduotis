@@ -12,12 +12,12 @@ int belekoks()
     std::uniform_int_distribution<int> dist(1,10);
     return dist(mt);
 }
-void sukurimas(int kiekis, char *argv[], int nd_sk)
+void sukurimas(int kiekis, char *argv[])
 {
     auto start = std::chrono::high_resolution_clock::now();
     int k=kiekis;
-    int s=0;
-    while(k>0) //suskaiciuoju skaitmenu kieki kintamajame kiekis
+    int s=0; //cia bus skaitmenu kiekis skaiciuje 'kiekis'
+    while(k>0) //suskaiciuoju skaitmenu kieki kintamajame kiekis, kuris parodo, kiek irasu sugeneruoti
     {
         k/=10;
         s++;
@@ -30,8 +30,9 @@ void sukurimas(int kiekis, char *argv[], int nd_sk)
         cout << "Failo sukurti nepavyko";
         exit(1);
     }
-    sukurtas<<left<<setw(9+s)<<"Pavarde"<<left<<setw(9+s)<<"Vardas";
-    nd_sk=5;
+    const auto tarpai=9+s;
+    sukurtas<<left<<setw(tarpai)<<"Pavarde"<<left<<setw(tarpai)<<"Vardas";
+    const auto nd_sk=5;
     for(int i=0; i<nd_sk;i++) //isspausdinu ND1 ND2 ... ND5
     {
         sukurtas<<left<<setw(4)<<"ND"+to_string(i+1);
@@ -39,17 +40,15 @@ void sukurimas(int kiekis, char *argv[], int nd_sk)
     sukurtas<<"Egzaminas "<<endl;
     for(int i=0; i<kiekis;i++) // isspausdinu 'kiekis' studentu irasu 
     {
-        sukurtas<<left<<setw(9+s)<<"Pavarde"+to_string(i+1)<<left<<setw(9+s)<<"Vardas"+to_string(i+1);
-        for(int j=0; j<nd_sk;j++)
+        sukurtas<<left<<setw(tarpai)<<"Pavarde"+to_string(i+1)<<left<<setw(tarpai)<<"Vardas"+to_string(i+1);
+        for(int j=0; j<=nd_sk;j++) //isspausdinu random sugeneruotus namu darbus ir egzamino pazymi
         {
             sukurtas<<left<<setw(4)<<belekoks();
         }
-        sukurtas<<belekoks()<<endl;
+        sukurtas<<endl;
     }
     sukurtas.close();
     auto finish = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = finish - start;
     cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
 }
-
-

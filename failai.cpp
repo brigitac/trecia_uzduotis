@@ -9,18 +9,27 @@
 #include "failai.h"
 #include "galbalas.h"
 #include "struktura.h"
-bool compare(const studentas &lhs, const studentas &rhs) {return lhs.pavarde<rhs.pavarde;}
-void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *argv[], int nd_sk, int nd_paz)
+bool compare(const studentas &lhs, const studentas &rhs)
+{
+    return lhs.pavarde<rhs.pavarde;
+}
+void failai(char *argv[])
 {
     auto start = std::chrono::high_resolution_clock::now();
+    string vardas;
+    string pavarde;
+    vector<int>v;
+    int egz_paz=0, nd_paz=0, nd_sk=0;
+    double galBalas=0;
     vector<studentas>good;
     vector<studentas>bad;
     ifstream failas1;
     try
     {
         failas1.open (argv[1]);
-        if (failas1.is_open()) {
-        } else {
+        if (failas1.is_open()) {}
+        else
+        {
             throw exception();
         }
     }
@@ -65,7 +74,7 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
         }
         failas1>>egz_paz;
         double vidurkis=0;
-        for (auto it=v.begin(); it!=v.end(); ++it) vidurkis += (*it); //susumuoju nd pazymius
+        for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
         vidurkis /= v.size();
         if (vidurkis>=6)
         {
@@ -104,9 +113,14 @@ void failai(string vardas, string pavarde, int egz_paz, vector<int> v, char *arg
     std::chrono::duration<double> elapsed = finish - start;
     cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
 }
-void failaid(string vardas, string pavarde, int egz_paz, vector<int> v, char *argv[], int nd_sk, int nd_paz)
+void failaid(char *argv[])
 {
     auto start = std::chrono::high_resolution_clock::now();
+    string vardas;
+    string pavarde;
+    vector<int>v;
+    int egz_paz=0, nd_paz=0, nd_sk=0;
+    double galBalas=0;
     std::deque<studentas>good;
     std::deque<studentas>bad;
     ifstream failas1;
@@ -159,7 +173,7 @@ void failaid(string vardas, string pavarde, int egz_paz, vector<int> v, char *ar
         }
         failas1>>egz_paz;
         double vidurkis=0;
-        for (auto it=v.begin(); it!=v.end(); ++it) vidurkis += (*it); //susumuoju nd pazymius
+        for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
         vidurkis /= v.size();
         if (vidurkis>=6)
         {
@@ -198,9 +212,14 @@ void failaid(string vardas, string pavarde, int egz_paz, vector<int> v, char *ar
     std::chrono::duration<double> elapsed = finish - start;
     cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
 }
-void failail(string vardas, string pavarde, int egz_paz, vector<int> v, char *argv[], int nd_sk, int nd_paz)
+void failail(char *argv[])
 {
     auto start = std::chrono::high_resolution_clock::now();
+    string vardas;
+    string pavarde;
+    vector<int>v;
+    int egz_paz=0, nd_paz=0, nd_sk=0;
+    double galBalas=0;
     std::list<studentas>good;
     std::list<studentas>bad;
     ifstream failas1;
@@ -253,7 +272,7 @@ void failail(string vardas, string pavarde, int egz_paz, vector<int> v, char *ar
         }
         failas1>>egz_paz;
         double vidurkis=0;
-        for (auto it=v.begin(); it!=v.end(); ++it) vidurkis += (*it); //susumuoju nd pazymius
+        for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
         vidurkis /= v.size();
         if (vidurkis>=6)
         {

@@ -14,16 +14,11 @@ using std::cout; using std::cin; using std::string;using std::vector;
 void wrong();
 int main (int, char *argv[])
 {
-    string vardas;
-    string pavarde;
-    vector<int>v;
-    int egz_paz=0, nd_paz=0, nd_sk=0;
-    double galBalas=0;
     cout<<"Jei norite duomenis suvesti, įveskite 1, jei norite nuskaityti iš failo - 2, jei norite sukurti atsitiktinį studentų failą - bet kokį kitą skaičių: ";
     int f=0;
     cin>>f;
     if (cin.fail()) wrong();
-    if (f==1) duomenu_ivedimas(vardas,pavarde,egz_paz,v,galBalas,nd_sk,nd_paz);
+    if (f==1) duomenu_ivedimas();
     else if (f==2)
     {
         cout<<"Jei norite naudoti vektorius, įveskite 1, jei list'ą - 2, jei deką - bet kokį kitą skaičių: ";
@@ -32,15 +27,15 @@ int main (int, char *argv[])
         if (cin.fail()) wrong();
         if (vld==1)
         {
-         failai(vardas,pavarde,egz_paz,v,argv,nd_sk,nd_paz);
+         failai(argv);
         }
         else if (vld==2)
         {
-         failail(vardas,pavarde,egz_paz,v,argv,nd_sk,nd_paz);
+         failail(argv);
         }
         else
         {
-        failaid(vardas,pavarde,egz_paz,v,argv,nd_sk,nd_paz);
+        failaid(argv);
         }
     }
     else
@@ -49,7 +44,7 @@ int main (int, char *argv[])
         int kiekis=0;
         cin>>kiekis;
         if (cin.fail()) wrong();
-        sukurimas(kiekis,argv,nd_sk);
+        sukurimas(kiekis,argv);
     }
     return 0;
 }
