@@ -21,16 +21,16 @@ int main (int, char *argv[])
     if (f==1) duomenu_ivedimas();
     else if (f==2)
     {
-//        cout<<"Jei norite naudoti mano strategija dalinant studentus i dvi kategorijas spauskite 1, jei 1strategija - 2 jei 2strategija - bet kokį kitą skaičių: ";
-//        int strategija=0;
-//        cin>>strategija;
-//        if (cin.fail()) wrong();
+        cout<<"Jei norite naudoti mano strategiją dalinant studentus i dvi kategorijas spauskite 1, jei 1strategija - 2 jei 2strategija - bet kokį kitą skaičių: ";
+        int strategija=0;
+        cin>>strategija;
+        if (cin.fail()) wrong();
         cout<<"Jei norite naudoti vektorius, įveskite 1, jei list'ą - 2, jei deką - bet kokį kitą skaičių: ";
         int vld=0;
         cin>>vld;
         if (cin.fail()) wrong();
-//        if (strategija==1)
-//        {
+        if (strategija==1)
+        {
             if (vld==1)
             {
                 auto start = std::chrono::high_resolution_clock::now();
@@ -61,79 +61,79 @@ int main (int, char *argv[])
                 std::chrono::duration<double> elapsed = finish - start;
                 cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
             }
-//        }
-//        else if (strategija==2)
-//        {
-//            if (vld==1)
-//            {
-//                auto start = std::chrono::high_resolution_clock::now();
-//                vector<studentas>studentai;
-//                vector<studentas>good;
-//                vector<studentas>bad;
-//                failai1(argv, good, bad, studentai);
-//                auto finish = std::chrono::high_resolution_clock::now();
-//                std::chrono::duration<double> elapsed = finish - start;
-//                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-//            }
-//            else if (vld==2)
-//            {
-//                auto start = std::chrono::high_resolution_clock::now();
-//                std::list<studentas>studentai;
-//                std::list<studentas>good;
-//                std::list<studentas>bad;
-//                failai1(argv, good, bad, studentai);
-//                auto finish = std::chrono::high_resolution_clock::now();
-//                std::chrono::duration<double> elapsed = finish - start;
-//                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-//            }
-//            else
-//            {
-//                auto start = std::chrono::high_resolution_clock::now();
-//                std::deque<studentas>studentai;
-//                std::deque<studentas>good;
-//                std::deque<studentas>bad;
-//                failai1(argv, good, bad, studentai);
-//                auto finish = std::chrono::high_resolution_clock::now();
-//                std::chrono::duration<double> elapsed = finish - start;
-//                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-//            }
-//        }
-//        else
-//        {
-//            if (vld==1)
-//            {
-//                auto start = std::chrono::high_resolution_clock::now();
-//                vector<studentas>studentai;
-//                vector<studentas>good;
-//                vector<studentas>bad;
-//                failai2(argv, good, bad, studentai);
-//                auto finish = std::chrono::high_resolution_clock::now();
-//                std::chrono::duration<double> elapsed = finish - start;
-//                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-//            }
-//            else if (vld==2)
-//            {
-//                auto start = std::chrono::high_resolution_clock::now();
-//                std::list<studentas>studentai;
-//                std::list<studentas>good;
-//                std::list<studentas>bad;
-//                failai2(argv, good, bad, studentai);
-//                auto finish = std::chrono::high_resolution_clock::now();
-//                std::chrono::duration<double> elapsed = finish - start;
-//                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-//            }
-//            else
-//            {
-//                auto start = std::chrono::high_resolution_clock::now();
-//                std::deque<studentas>studentai;
-//                std::deque<studentas>good;
-//                std::deque<studentas>bad;
-//                failai2(argv, good, bad, studentai);
-//                auto finish = std::chrono::high_resolution_clock::now();
-//                std::chrono::duration<double> elapsed = finish - start;
-//                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-//            }
-//        }
+        }
+        else if (strategija==2)
+        {
+            if (vld==1)
+            {
+                auto start = std::chrono::high_resolution_clock::now();
+                vector<studentas>studentai;
+                vector<studentas>good;
+                vector<studentas>bad;
+                failai1(argv, good, bad, studentai);
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
+            }
+            else if (vld==2)
+            {
+                auto start = std::chrono::high_resolution_clock::now();
+                std::list<studentas>studentai;
+                std::list<studentas>good;
+                std::list<studentas>bad;
+                failai1(argv, good, bad, studentai);
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
+            }
+            else
+            {
+                auto start = std::chrono::high_resolution_clock::now();
+                std::deque<studentas>studentai;
+                std::deque<studentas>good;
+                std::deque<studentas>bad;
+                failai1(argv, good, bad, studentai);
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
+            }
+        }
+        else
+        {
+            if (vld==1)
+            {
+                auto start = std::chrono::high_resolution_clock::now();
+                vector<studentas>studentai;
+                vector<studentas>good;
+                vector<studentas>bad;
+                failai2(argv, good, studentai);
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
+            }
+            else if (vld==2)
+            {
+                auto start = std::chrono::high_resolution_clock::now();
+                std::list<studentas>studentai;
+                std::list<studentas>good;
+                std::list<studentas>bad;
+                failai2(argv, good, studentai);
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
+            }
+            else
+            {
+                auto start = std::chrono::high_resolution_clock::now();
+                std::deque<studentas>studentai;
+                std::deque<studentas>good;
+                std::deque<studentas>bad;
+                failai2(argv, good, studentai);
+                auto finish = std::chrono::high_resolution_clock::now();
+                std::chrono::duration<double> elapsed = finish - start;
+                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
+            }
+        }
     }
     else
     {
