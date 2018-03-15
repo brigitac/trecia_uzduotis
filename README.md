@@ -17,5 +17,5 @@ clang++ -std=c++11 main_v.cpp galbalas.cpp ivedimas.cpp failai.cpp sukurimas.cpp
 ```
 ./a.out 10.txt
 ```
-## Visa kita, ar norėsite naudoti vektorius, listą, deką, vienokias ar kitokias strategijas, kiek įrašų norit, kad būtų sugeneruota, jūsų programa paklaus.
+## Visa kita, ar norėsite naudoti vektorius, listą, deką, vienokias ar kitokias strategijas, kiek įrašų norėsit, kad būtų sugeneruota, jūsų programa paklaus.
 
