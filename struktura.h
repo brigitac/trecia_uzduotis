@@ -1,10 +1,9 @@
 #ifndef STRUKTURA_H
 #define STRUKTURA_H
-using std::string;
 struct studentas
 {
-    string vardas;
-    string pavarde;
+    std::string vardas;
+    std::string pavarde;
     double galBalas_m;
     double galBalas_v;
 };

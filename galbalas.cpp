@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "galbalas.h"
+using std::vector;
 double galBalas_vidurkis(const vector<int>& v, int egz_paz)
 {
     double vidurkis=0;

@@ -6,6 +6,7 @@
 #include <fstream>
 #include "ivedimas.h"
 #include "galbalas.h"
+using std::cout; using std::cin; using std::endl; using std::string; using std::setprecision; using std::fixed; using std::vector;
 void duomenu_ivedimas()
 {
     string vardas;

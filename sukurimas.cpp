@@ -5,6 +5,7 @@
 #include <random>
 #include <fstream>
 #include "sukurimas.h"
+using std::cout; using std::cin; using std::endl; using std::string; using std::setprecision; using std::fixed; using std::vector; using std::ifstream; using std::ofstream; using std::setw; using std::left; using std::exception; using std::to_string;
 int belekoks()
 {
     std::random_device rd;
@@ -14,7 +15,6 @@ int belekoks()
 }
 void sukurimas(int kiekis, char *argv[])
 {
-    auto start = std::chrono::high_resolution_clock::now();
     int k=kiekis;
     int s=0; //cia bus skaitmenu kiekis skaiciuje 'kiekis'
     while(k>0) //suskaiciuoju skaitmenu kieki kintamajame kiekis, kuris parodo, kiek irasu sugeneruoti
@@ -48,7 +48,4 @@ void sukurimas(int kiekis, char *argv[])
         sukurtas<<endl;
     }
     sukurtas.close();
-    auto finish = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = finish - start;
-    cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
 }
