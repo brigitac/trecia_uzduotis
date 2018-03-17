@@ -24,7 +24,6 @@ void failai(char *argv[], T &good, T &bad)
     string pavarde;
     vector<int>v;
     int egz_paz=0, nd_paz=0, nd_sk=0;
-    double galBalas=0;
     ifstream failas1;
     try
     {
@@ -64,24 +63,55 @@ void failai(char *argv[], T &good, T &bad)
     }while (simbol!='\n');
     nd_sk-=3; //suzinau, kiek buvo namu darbu, is visu pirmoj eilutej zodziu atemus 3, nes 3 zodziziai yra vardui, pavardei ir egzamino pazymiui
     //issisaugau reikiamus duomenis
-    double galBalas_m=0;
-    double galBalas_v=0;
     while(!failas1.eof()) //skaitau faila iki pabaigos ir issisaugau visa info apie studenta, skaiciuoju blogu ir geru studentu kieki
     {
+        int flag=0;
         failas1>>pavarde>>vardas;
+        if (failas1.fail()) break;
         for(int i=0; i<nd_sk;i++) //issisaugau nd pazymius i vektoriu
         {
             failas1>>nd_paz;
+            if (failas1.fail() && v.size()==0)
+            {
+                cerr<<pavarde<<" "<<vardas<<" neturi nei vieno namų darbų pažymio"<<endl;
+                exit(1);
+            }
+            else if (failas1.fail() && v.size()==1)
+            {
+                cerr<<pavarde<<" "<<vardas<<" neturi nei vieno namų darbų pažymio"<<endl;
+                exit(1);
+            }
+            else if (failas1.fail() && v.size()<5)
+            {
+                failas1.clear();
+                auto it=v.begin();
+                advance (it,(v.size()-1));
+                egz_paz=*it;
+                v.end()=v.erase(it);
+                flag=1;
+                break;
+            }
             v.push_back(nd_paz);
         }
-        failas1>>egz_paz;
+        if (flag!=1)
+        {
+            failas1>>egz_paz;
+            if (failas1.fail())
+            {
+                failas1.clear();
+                auto it=v.begin();
+                advance (it,(v.size()-1));
+                egz_paz=*it;
+                v.end()=v.erase(it);
+            }
+        }
         double vidurkis=0;
         for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
         vidurkis /= v.size();
         if (vidurkis>=6)
         {
-            galBalas_m=galBalas_mediana(v,egz_paz);
-            galBalas_v=galBalas_vidurkis(v,egz_paz);
+            double galBalas_m=galBalas_mediana(v,egz_paz);
+            double galBalas_v=galBalas_vidurkis(v,egz_paz);
             studentas stud;
             stud.vardas=vardas;
             stud.pavarde=pavarde;
@@ -163,13 +193,46 @@ void failai1(char *argv[], T &good, T &bad, T &studentai)
     double galBalas_v=0;
     while(!failas1.eof()) //skaitau faila iki pabaigos ir issisaugau visa info apie studenta, skaiciuoju blogu ir geru studentu kieki
     {
+        int flag=0;
         failas1>>pavarde>>vardas;
+        if (failas1.fail()) break;
         for(int i=0; i<nd_sk;i++) //issisaugau nd pazymius i vektoriu
         {
             failas1>>nd_paz;
+            if (failas1.fail() && v.size()==0)
+            {
+                cerr<<pavarde<<" "<<vardas<<" neturi nei vieno namų darbų pažymio"<<endl;
+                exit(1);
+            }
+            else if (failas1.fail() && v.size()==1)
+            {
+                cerr<<pavarde<<" "<<vardas<<" neturi nei vieno namų darbų pažymio"<<endl;
+                exit(1);
+            }
+            else if (failas1.fail() && v.size()<5)
+            {
+                failas1.clear();
+                auto it=v.begin();
+                advance (it,(v.size()-1));
+                egz_paz=*it;
+                v.end()=v.erase(it);
+                flag=1;
+                break;
+            }
             v.push_back(nd_paz);
         }
-        failas1>>egz_paz;
+        if (flag!=1)
+        {
+            failas1>>egz_paz;
+            if (failas1.fail())
+            {
+                failas1.clear();
+                auto it=v.begin();
+                advance (it,(v.size()-1));
+                egz_paz=*it;
+                v.end()=v.erase(it);
+            }
+        }
         double vidurkis=0;
         for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
         vidurkis /= v.size();
@@ -257,13 +320,46 @@ void failai2(char *argv[], T &good, T &studentai)
     int i=0;
     while(!failas1.eof()) //skaitau faila iki pabaigos ir issisaugau visa info apie studenta, skaiciuoju blogu ir geru studentu kieki
     {
+        int flag=0;
         failas1>>pavarde>>vardas;
+        if (failas1.fail()) break;
         for(int i=0; i<nd_sk;i++) //issisaugau nd pazymius i vektoriu
         {
             failas1>>nd_paz;
+            if (failas1.fail() && v.size()==0)
+            {
+                cerr<<pavarde<<" "<<vardas<<" neturi nei vieno namų darbų pažymio"<<endl;
+                exit(1);
+            }
+            else if (failas1.fail() && v.size()==1)
+            {
+                cerr<<pavarde<<" "<<vardas<<" neturi nei vieno namų darbų pažymio"<<endl;
+                exit(1);
+            }
+            else if (failas1.fail() && v.size()<5)
+            {
+                failas1.clear();
+                auto it=v.begin();
+                advance (it,(v.size()-1));
+                egz_paz=*it;
+                v.end()=v.erase(it);
+                flag=1;
+                break;
+            }
             v.push_back(nd_paz);
         }
-        failas1>>egz_paz;
+        if (flag!=1)
+        {
+            failas1>>egz_paz;
+            if (failas1.fail())
+            {
+                failas1.clear();
+                auto it=v.begin();
+                advance (it,(v.size()-1));
+                egz_paz=*it;
+                v.end()=v.erase(it);
+            }
+        }
         double vidurkis=0;
         for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
         vidurkis /= v.size();
