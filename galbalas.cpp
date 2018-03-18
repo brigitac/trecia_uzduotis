@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <numeric>
 #include "galbalas.h"
 using std::vector;
 double galBalas_vidurkis(const vector<int>& v, int egz_paz)
 {
-    double vidurkis=0;
-    for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
-    vidurkis /= v.size();
+    auto vidurkis=std::accumulate(v.begin(),v.end(),0.0)/v.size();
     const double galBalas=(0.6*egz_paz)+(0.4*vidurkis);
     return galBalas;
 }

@@ -105,9 +105,7 @@ void failai(char *argv[], T &good, T &bad)
                 v.end()=v.erase(it);
             }
         }
-        double vidurkis=0;
-        for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
-        vidurkis /= v.size();
+        auto vidurkis=std::accumulate(v.begin(),v.end(),0.0)/v.size();
         if (vidurkis>=6)
         {
             double galBalas_m=galBalas_mediana(v,egz_paz);
@@ -233,9 +231,7 @@ void failai1(char *argv[], T &good, T &bad, T &studentai)
                 v.end()=v.erase(it);
             }
         }
-        double vidurkis=0;
-        for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
-        vidurkis /= v.size();
+        auto vidurkis=std::accumulate(v.begin(),v.end(),0.0)/v.size();
         galBalas_m=galBalas_mediana(v,egz_paz);
         galBalas_v=galBalas_vidurkis(v,egz_paz);
         studentas stud;
@@ -360,9 +356,7 @@ void failai2(char *argv[], T &good, T &studentai)
                 v.end()=v.erase(it);
             }
         }
-        double vidurkis=0;
-        for (const auto& elem:v) vidurkis+=elem; //susumuoju nd pazymius
-        vidurkis /= v.size();
+        auto vidurkis=std::accumulate(v.begin(),v.end(),0.0)/v.size();
         galBalas_m=galBalas_mediana(v,egz_paz);
         galBalas_v=galBalas_vidurkis(v,egz_paz);
         studentas stud;
