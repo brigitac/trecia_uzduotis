@@ -11,7 +11,7 @@
 #include "sukurimas.h"
 #include "struktura.h"
 using std::cout; using std::cin; using std::string; using std::vector; using std::cerr;
-void wrong();
+[[ noreturn ]] void wrong();
 int main (int, char *argv[])
 {
     cout<<"Jei norite duomenis suvesti, įveskite 1, jei norite nuskaityti iš failo - 2, jei norite sukurti atsitiktinį studentų failą - bet kokį kitą skaičių: ";
@@ -153,5 +153,5 @@ void wrong()
 {
     cin.clear();
     cerr<<"KĄ TU ČIA VEDI?!"<<endl;
-    exit(1);
+    exit (1);
 }

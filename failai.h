@@ -12,6 +12,10 @@
 #include "galbalas.h"
 #include "struktura.h"
 using std::cout; using std::cin; using std::endl; using std::string; using std::setprecision; using std::fixed; using std::vector; using std::ifstream; using std::ofstream; using std::setw; using std::left; using std::exception; using std::cerr;
+bool compare(const studentas &lhs, const studentas &rhs);
+void rusiuokime(vector<studentas>& good);
+void rusiuokime(std::list<studentas>& good);
+void rusiuokime(std::deque<studentas>& good);
 bool compare(const studentas &lhs, const studentas &rhs) {return lhs.pavarde<rhs.pavarde;}
 void rusiuokime(vector<studentas>& good){sort(good.begin(), good.end(), compare);}
 void rusiuokime(std::list<studentas>& good){good.sort(compare);}
@@ -85,7 +89,9 @@ void failai(char *argv[], T &good, T &bad)
             {
                 failas1.clear();
                 auto it=v.begin();
-                advance (it,(v.size()-1));
+                int last=static_cast<int>(v.size());
+                last=last-1;
+                advance (it,last);
                 egz_paz=*it;
                 v.end()=v.erase(it);
                 flag=1;
@@ -100,7 +106,9 @@ void failai(char *argv[], T &good, T &bad)
             {
                 failas1.clear();
                 auto it=v.begin();
-                advance (it,(v.size()-1));
+                int last=static_cast<int>(v.size());
+                last=last-1;
+                advance (it,last);
                 egz_paz=*it;
                 v.end()=v.erase(it);
             }
@@ -124,7 +132,7 @@ void failai(char *argv[], T &good, T &bad)
             stud.pavarde=pavarde;
             bad.push_back(stud);
         }
-        vector<int>().swap(v);
+        v.clear();
     }
     rusiuokime(good);
     for(auto it=good.begin(); it!=good.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
@@ -147,7 +155,6 @@ void failai1(char *argv[], T &good, T &bad, T &studentai)
     string pavarde;
     vector<int>v;
     int egz_paz=0, nd_paz=0, nd_sk=0;
-    double galBalas=0;
     ifstream failas1;
     try
     {
@@ -211,7 +218,9 @@ void failai1(char *argv[], T &good, T &bad, T &studentai)
             {
                 failas1.clear();
                 auto it=v.begin();
-                advance (it,(v.size()-1));
+                int last=static_cast<int>(v.size());
+                last=last-1;
+                advance (it,last);
                 egz_paz=*it;
                 v.end()=v.erase(it);
                 flag=1;
@@ -226,7 +235,9 @@ void failai1(char *argv[], T &good, T &bad, T &studentai)
             {
                 failas1.clear();
                 auto it=v.begin();
-                advance (it,(v.size()-1));
+                int last=static_cast<int>(v.size());
+                last=last-1;
+                advance (it,last);
                 egz_paz=*it;
                 v.end()=v.erase(it);
             }
@@ -248,7 +259,7 @@ void failai1(char *argv[], T &good, T &bad, T &studentai)
         {
             bad.push_back(stud);
         }
-        vector<int>().swap(v);
+        v.clear();
     }
     rusiuokime(good);
     for(auto it=good.begin(); it!=good.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
@@ -271,7 +282,6 @@ void failai2(char *argv[], T &good, T &studentai)
     string pavarde;
     vector<int>v;
     int egz_paz=0, nd_paz=0, nd_sk=0;
-    double galBalas=0;
     ifstream failas1;
     try
     {
@@ -313,7 +323,7 @@ void failai2(char *argv[], T &good, T &studentai)
     //issisaugau reikiamus duomenis
     double galBalas_m=0;
     double galBalas_v=0;
-    int i=0;
+    int j=0;
     while(!failas1.eof()) //skaitau faila iki pabaigos ir issisaugau visa info apie studenta, skaiciuoju blogu ir geru studentu kieki
     {
         int flag=0;
@@ -336,7 +346,9 @@ void failai2(char *argv[], T &good, T &studentai)
             {
                 failas1.clear();
                 auto it=v.begin();
-                advance (it,(v.size()-1));
+                int last=static_cast<int>(v.size());
+                last=last-1;
+                advance (it,last);
                 egz_paz=*it;
                 v.end()=v.erase(it);
                 flag=1;
@@ -351,7 +363,9 @@ void failai2(char *argv[], T &good, T &studentai)
             {
                 failas1.clear();
                 auto it=v.begin();
-                advance (it,(v.size()-1));
+                int last=static_cast<int>(v.size());
+                last=last-1;
+                advance (it,last);
                 egz_paz=*it;
                 v.end()=v.erase(it);
             }
@@ -366,7 +380,7 @@ void failai2(char *argv[], T &good, T &studentai)
         stud.galBalas_v=galBalas_v;
         studentai.push_back(stud);
         auto it = studentai.begin();
-        advance (it,i);
+        advance (it,j);
         if (vidurkis>=6)
         {
             good.push_back(stud);
@@ -379,9 +393,9 @@ void failai2(char *argv[], T &good, T &studentai)
         }
         else
         {
-        i++;
+        j++;
         }
-        vector<int>().swap(v);
+        v.clear();
     }
     rusiuokime(good);
     for(auto it=good.begin(); it!=good.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius

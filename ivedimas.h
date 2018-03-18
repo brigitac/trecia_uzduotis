@@ -3,5 +3,5 @@
 void duomenu_ivedimas();
 void ivedami_sk(std::vector<int>& v, int *egz_paz);
 void generuojami_sk(std::vector<int>& v, int *egz_paz);
-void wrong();
+[[ noreturn ]] void wrong();
 #endif
