@@ -6,5 +6,6 @@ struct studentas
     std::string pavarde;
     double galBalas_m;
     double galBalas_v;
+    std::vector<int>v;
 };
 #endif

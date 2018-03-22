@@ -21,7 +21,7 @@ int main (int, char *argv[])
     if (f==1) duomenu_ivedimas();
     else if (f==2)
     {
-        cout<<"Jei norite naudoti mano strategiją dalinant studentus i dvi kategorijas spauskite 1, jei 1strategija - 2 jei 2strategija - bet kokį kitą skaičių: ";
+        cout<<"Jei norite naudoti 1strategiją dalinant studentus i dvi kategorijas spauskite 1, jei 2strategija - bet kokį kitą skaičių: ";
         int strategija=0;
         cin>>strategija;
         if (cin.fail()) wrong();
@@ -30,39 +30,6 @@ int main (int, char *argv[])
         cin>>vld;
         if (cin.fail()) wrong();
         if (strategija==1)
-        {
-            if (vld==1)
-            {
-                auto start = std::chrono::high_resolution_clock::now();
-                vector<studentas>good;
-                vector<studentas>bad;
-                failai(argv, good, bad);
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<double> elapsed = finish - start;
-                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-            }
-            else if (vld==2)
-            {
-                auto start = std::chrono::high_resolution_clock::now();
-                std::list<studentas>good;
-                std::list<studentas>bad;
-                failai(argv, good, bad);
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<double> elapsed = finish - start;
-                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-            }
-            else
-            {
-                auto start = std::chrono::high_resolution_clock::now();
-                std::deque<studentas>good;
-                std::deque<studentas>bad;
-                failai(argv, good, bad);
-                auto finish = std::chrono::high_resolution_clock::now();
-                std::chrono::duration<double> elapsed = finish - start;
-                cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
-            }
-        }
-        else if (strategija==2)
         {
             if (vld==1)
             {
@@ -81,7 +48,7 @@ int main (int, char *argv[])
                 std::list<studentas>studentai;
                 std::list<studentas>good;
                 std::list<studentas>bad;
-                failai1(argv, good, bad, studentai);
+                failai1(argv, good,bad, studentai);
                 auto finish = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<double> elapsed = finish - start;
                 cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
@@ -92,7 +59,7 @@ int main (int, char *argv[])
                 std::deque<studentas>studentai;
                 std::deque<studentas>good;
                 std::deque<studentas>bad;
-                failai1(argv, good, bad, studentai);
+                failai1(argv, good,bad, studentai);
                 auto finish = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<double> elapsed = finish - start;
                 cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
@@ -128,7 +95,7 @@ int main (int, char *argv[])
                 std::deque<studentas>studentai;
                 std::deque<studentas>good;
                 std::deque<studentas>bad;
-                failai2(argv, good, studentai);
+                failai2(argv, good ,studentai);
                 auto finish = std::chrono::high_resolution_clock::now();
                 std::chrono::duration<double> elapsed = finish - start;
                 cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
