@@ -2,7 +2,7 @@
 ## Kaip sukompiliuoti programą?
 Į terminalą suveskite: 
 ```
-clang++ -std=c++11 main_v.cpp galbalas.cpp ivedimas.cpp failai.cpp sukurimas.cpp
+clang++ -std=c++11 main_v.cpp galbalas.cpp ivedimas.cpp sukurimas.cpp
 ```
 ## Kaip paleisti programą?
 - __Jeigu nenorite dirbti su failais, įveskite:__
