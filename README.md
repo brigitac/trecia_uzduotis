@@ -1,6 +1,9 @@
 # Kaip naudotis programa?
 ## Kaip sukompiliuoti programą?
-Atsisiųskite visus failus ir įveskite į terminalą: ```make```
+Atsisiųskite visus failus ir į terminalą įveskite: 
+```
+make
+```
 ## Kaip paleisti programą?
 - __Jei nenorite dirbti su failais, įveskite:__
 ```
