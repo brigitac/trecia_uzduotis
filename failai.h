@@ -13,6 +13,8 @@
 #include "struktura.h"
 using std::cout; using std::cin; using std::endl; using std::string; using std::setprecision; using std::fixed; using std::vector; using std::ifstream; using std::ofstream; using std::setw; using std::left; using std::exception; using std::cerr;
 bool compare(const studentas &lhs, const studentas &rhs);
+bool check_good(studentas &s);
+bool check_bad(studentas &s);
 void rusiuokime(vector<studentas>& good);
 void rusiuokime(std::list<studentas>& good);
 void rusiuokime(std::deque<studentas>& good);
@@ -20,6 +22,15 @@ bool compare(const studentas &lhs, const studentas &rhs) {return lhs.pavarde<rhs
 void rusiuokime(vector<studentas>& good){sort(good.begin(), good.end(), compare);}
 void rusiuokime(std::list<studentas>& good){good.sort(compare);}
 void rusiuokime(std::deque<studentas>& good){sort(good.begin(), good.end(), compare);}
+bool check_good(studentas &s)
+{
+    auto vidurkis=std::accumulate(s.v.begin(),s.v.end(),0.0)/s.v.size();
+    return vidurkis>=6;
+}
+bool check_bad(studentas &s)
+{
+    return !check_good(s);
+}
 template<typename T>
 void failai(char *argv[], T &good, T &bad, T &studentai, int strategija)
 {
@@ -38,38 +49,14 @@ void failai(char *argv[], T &good, T &bad, T &studentai, int strategija)
 template<typename T>
 void strategija1(T &good, T&bad, T &studentai)
 {
-    auto it = studentai.begin();
-    while(it!=studentai.end())
-    {
-        auto vidurkis=std::accumulate((*it).v.begin(),(*it).v.end(),0.0)/(*it).v.size();
-        if (vidurkis>=6)
-        {
-            good.push_back(*it);
-        }
-        else
-        {
-            bad.push_back(*it);
-        }
-        it++;
-    }
+     std::remove_copy_if(studentai.begin(),studentai.end(),std::back_inserter(good),check_bad);
+     std::remove_copy_if(studentai.begin(),studentai.end(),std::back_inserter(bad),check_good);
 }
 template<typename T>
 void strategija2(T &good, T &studentai)
 {
-    auto it = studentai.begin();
-    while(it!=studentai.end())
-    {
-        auto vidurkis=std::accumulate((*it).v.begin(),(*it).v.end(),0.0)/(*it).v.size();
-        if (vidurkis>=6)
-        {
-            good.push_back(*it);
-            it=studentai.erase(it);
-        }
-        else
-        {
-            it++;
-        }
-    }
+    std::remove_copy_if(studentai.begin(),studentai.end(),std::back_inserter(good),check_bad);
+    studentai.erase(remove_if(studentai.begin(),studentai.end(),check_good), studentai.end());
 }
 template<typename T>
 void nuskaitymas(char *argv[], T &studentai)
