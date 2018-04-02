@@ -12,7 +12,7 @@
 #include "struktura.h"
 using std::cout; using std::cin; using std::string; using std::vector; using std::cerr;
 [[ noreturn ]] void wrong();
-int main (int, char *argv[])
+int main (int, char *argv[]) 
 {
     cout<<"Jei norite duomenis suvesti, įveskite 1, jei norite nuskaityti iš failo - 2, jei norite sukurti atsitiktinį studentų failą - bet kokį kitą skaičių: ";
     int f=0;

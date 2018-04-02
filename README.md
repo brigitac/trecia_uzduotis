@@ -1,19 +1,16 @@
 # Kaip naudotis programa?
 ## Kaip sukompiliuoti programą?
-Į terminalą suveskite: 
-```
-clang++ -std=c++11 main_v.cpp galbalas.cpp ivedimas.cpp sukurimas.cpp
-```
+Atsisiųskite visus failus ir įveskite į terminalą: ```make```
 ## Kaip paleisti programą?
-- __Jeigu nenorite dirbti su failais, įveskite:__
+- __Jei nenorite dirbti su failais, įveskite:__
 ```
 ./a.out
 ```
-- __Jeigu norite skaityti iš "kursiokai.txt" failo ir įrašyti duomenis į pavyzdžiui "rezultatas.txt" failą, įveskite:__
+- __Jei norite skaityti iš "kursiokai.txt" failo ir įrašyti duomenis į pavyzdžiui "rezultatas.txt" failą, įveskite:__
 ```
 ./a.out kursiokai.txt rezultatas.txt
 ```
-- __Jeigu norite sukurti failą su sugeneruotais įrašais, įveskite failo pavadinimą (pvz "10.txt"), į kurį norite, kad būtų įrašyti duomenys.__
+- __Jei norite sukurti failą su sugeneruotais įrašais, įveskite failo pavadinimą (pvz "10.txt"), į kurį norite, kad būtų įrašyti duomenys.__
 ```
 ./a.out 10.txt
 ```
