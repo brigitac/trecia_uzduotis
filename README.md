@@ -1,4 +1,16 @@
+# Vertinimas
+
+## Pastabos
+
+- I README pridėti nuorodas į releasus.
+- Vartotojo vadovas galėtų būti ir "profesionalesnis" :)
+
+## Pagyrimai
+
+- Visa kita
+
 # Kaip naudotis programa?
+
 ## Kaip sukompiliuoti programą?
 Atsisiųskite visus failus ir į terminalą įveskite: ```make ```
 ## Kaip paleisti programą?
