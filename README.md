@@ -2,8 +2,8 @@
 
 ## Pastabos
 
-- I README pridėti nuorodas į releasus.
-- Vartotojo vadovas galėtų būti ir "profesionalesnis" :)
+- [x] I README pridėti nuorodas į releasus.
+- [x] Vartotojo vadovas galėtų būti ir "profesionalesnis" :)
 
 ## Pagyrimai
 
@@ -12,7 +12,11 @@
 # Kaip naudotis programa?
 
 ## Kaip sukompiliuoti programą?
-Atsisiųskite visus failus ir į terminalą įveskite: ```make ```
+1. Atsidarykite terminalą ir pakeiskite katalogą į tą, kur norėsite išsisaugoti programos failus 
+(pvz.: ```cd desktop```)
+2. Nusiklonuokite repoziciją ```git clone https://github.com/brigitac/pirma_uzduotis.git```
+3. 'Nueikite' į nusiklonuotą folderį įvesdami: ```cd pirma_uzduotis```
+4. Įveskite: ```make ```
 ## Kaip paleisti programą?
 - __Jei nenorite dirbti su failais, įveskite:__ ```./a.out```
 - __Jei norite skaityti iš "kursiokai.txt" failo ir įrašyti duomenis į pavyzdžiui "rezultatas.txt" failą, įveskite:__ ``` ./a.out kursiokai.txt rezultatas.txt ```
