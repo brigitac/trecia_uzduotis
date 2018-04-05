@@ -13,6 +13,7 @@
 #include "struktura.h"
 using std::cout; using std::cin; using std::endl; using std::string; using std::setprecision; using std::fixed; using std::vector; using std::ifstream; using std::ofstream; using std::setw; using std::left; using std::exception; using std::cerr;
 bool compare(const studentas &lhs, const studentas &rhs);
+//void bandymas(std::istream &in);
 bool check_good(studentas &s);
 bool check_bad(studentas &s);
 void rusiuokime(vector<studentas>& good);
@@ -37,7 +38,7 @@ void failai(char *argv[], T &good, T &bad, T &studentai, int strategija)
     nuskaitymas(argv, studentai);
     if (strategija==1)
     {
-    strategija1(good,bad,studentai);
+        strategija1(good,bad,studentai);
         irasymas(argv, bad, good);
     }
     else
@@ -47,7 +48,7 @@ void failai(char *argv[], T &good, T &bad, T &studentai, int strategija)
     }
 }
 template<typename T>
-void strategija1(T &good, T&bad, T &studentai)
+void strategija1(T &good, T &bad, T &studentai)
 {
      std::remove_copy_if(studentai.begin(),studentai.end(),std::back_inserter(good),check_bad);
      std::remove_copy_if(studentai.begin(),studentai.end(),std::back_inserter(bad),check_good);
@@ -81,6 +82,7 @@ void nuskaitymas(char *argv[], T &studentai)
         cerr << "Duomenų failas nerastas."<<endl;
         exit(1);
     }
+//    bandymas(failas1);
     string pirma_eil;
     getline(failas1,pirma_eil);
     const int nd_sk=5;
@@ -134,6 +136,12 @@ void nuskaitymas(char *argv[], T &studentai)
     }
     failas1.close();
 }
+//void bandymas(std::istream &in)
+//{
+//    string vardas;
+//    in>>vardas;
+//    cout<<vardas;
+//}
 template<typename T>
 void irasymas(char *argv[], T &bad, T &good)
 {
