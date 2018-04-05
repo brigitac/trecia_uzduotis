@@ -2,12 +2,12 @@
 
 ## Pastabos
 
-- [x] I README pridėti nuorodas į releasus.
-- [x] Vartotojo vadovas galėtų būti ir "profesionalesnis" :)
+- [x] I README pridėti nuorodas į releasus. (PATAISYTA)
+- [x] Vartotojo vadovas galėtų būti ir "profesionalesnis" :) (PATAISYTA)
 
 ## Pagyrimai
 
-- Visa kita
+- Visa kita (NEREIKĖJO TAISYTI ;) )
 
 # Kaip naudotis programa?
 
