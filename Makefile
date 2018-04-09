@@ -1,9 +1,8 @@
 CC = clang++
-CXXFLAGS = -g -c -Wall -Weverything -Wno-c++98-compat -std=c++11
-LDFLAGS = -g
+CXXFLAGS = -c -Wall -Weverything -Wno-c++98-compat -std=c++11
 
 all: main_v.o galbalas.o ivedimas.o sukurimas.o
-	$(CC) $(LDFLAGS) $^
+	$(CC) $^
 main_v.o: main_v.cpp galbalas.h ivedimas.h failai.h struktura.h sukurimas.h
 	$(CC) $(CXXFLAGS) $<
 galbalas.o: galbalas.cpp galbalas.h
