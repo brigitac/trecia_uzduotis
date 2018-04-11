@@ -37,15 +37,16 @@ void sukurimas(int kiekis, char *argv[])
     {
         sukurtas<<left<<setw(4)<<"ND"+to_string(i+1);
     }
-    sukurtas<<"Egzaminas "<<endl;
+    sukurtas<<"Egzaminas ";
     for(int i=0; i<kiekis;i++) // isspausdinu 'kiekis' studentu irasu 
     {
-        sukurtas<<left<<setw(tarpai)<<"Pavarde"+to_string(i+1)<<left<<setw(tarpai)<<"Vardas"+to_string(i+1);
-        for(int j=0; j<=nd_sk;j++) //isspausdinu random sugeneruotus namu darbus ir egzamino pazymi
+        sukurtas<<endl<<left<<setw(tarpai)<<"Pavarde"+to_string(i+1)<<left<<setw(tarpai)<<"Vardas"+to_string(i+1);
+        for(int j=0; j<nd_sk;j++) //isspausdinu random sugeneruotus namu darbus ir egzamino pazymi
         {
             sukurtas<<left<<setw(4)<<belekoks();
         }
-        sukurtas<<endl;
+         sukurtas<<belekoks();
     }
+
     sukurtas.close();
 }
