@@ -6,7 +6,6 @@
 #include <fstream>
 #include <chrono>
 #include "galbalas.h"
-#include "ivedimas.h"
 #include "failai.h"
 #include "sukurimas.h"
 #include "struktura.h"
@@ -14,12 +13,11 @@ using std::cout; using std::cin; using std::string; using std::vector; using std
 [[ noreturn ]] void wrong();
 int main (int, char *argv[]) 
 {
-    cout<<"Jei norite duomenis suvesti, įveskite 1, jei norite nuskaityti iš failo - 2, jei norite sukurti atsitiktinį studentų failą - bet kokį kitą skaičių: ";
+    cout<<"Jei norite duomenis nuskaityti iš failo įveskite 1, jei norite sukurti atsitiktinį studentų failą - bet kokį kitą skaičių: ";
     int f=0;
     cin>>f;
     if (cin.fail()) wrong();
-    if (f==1) duomenu_ivedimas();
-    else if (f==2)
+    if (f==1)
     {
         cout<<"Jei norite naudoti 1strategiją dalinant studentus i dvi kategorijas spauskite 1, jei 2strategija - bet kokį kitą skaičių: ";
         int strategija=0;
