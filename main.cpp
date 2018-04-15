@@ -8,7 +8,7 @@
 #include "galbalas.h"
 #include "failai.h"
 #include "sukurimas.h"
-#include "struktura.h"
+#include "studentas.h"
 using std::cout; using std::cin; using std::string; using std::vector; using std::cerr;
 [[ noreturn ]] void wrong();
 int main (int, char *argv[]) 
@@ -19,9 +19,6 @@ int main (int, char *argv[])
     if (cin.fail()) wrong();
     if (f==1)
     {
-        cout<<"Jei norite naudoti 1strategiją dalinant studentus i dvi kategorijas spauskite 1, jei 2strategija - bet kokį kitą skaičių: ";
-        int strategija=0;
-        cin>>strategija;
         if (cin.fail()) wrong();
         cout<<"Jei norite naudoti vektorius, įveskite 1, jei list'ą - 2, jei deką - bet kokį kitą skaičių: ";
         int vld=0;
@@ -32,8 +29,7 @@ int main (int, char *argv[])
             auto start = std::chrono::high_resolution_clock::now();
             vector<studentas>studentai;
             vector<studentas>good;
-            vector<studentas>bad;
-            failai(argv, good, bad, studentai, strategija);
+            failai(argv, good, studentai);
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
             cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
@@ -43,8 +39,7 @@ int main (int, char *argv[])
             auto start = std::chrono::high_resolution_clock::now();
             std::list<studentas>studentai;
             std::list<studentas>good;
-            std::list<studentas>bad;
-            failai(argv, good,bad, studentai, strategija);
+            failai(argv, good, studentai);
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
             cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
@@ -54,8 +49,7 @@ int main (int, char *argv[])
             auto start = std::chrono::high_resolution_clock::now();
             std::deque<studentas>studentai;
             std::deque<studentas>good;
-            std::deque<studentas>bad;
-            failai(argv, good,bad, studentai, strategija);
+            failai(argv, good, studentai);
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
             cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
@@ -79,6 +73,6 @@ int main (int, char *argv[])
 void wrong()
 {
     cin.clear();
-    cerr<<"KĄ TU ČIA VEDI?!"<<endl;
+    cerr<<"Ivedete bloga simboli, todel programa buvo nutraukta."<<endl;
     exit (1);
 }
