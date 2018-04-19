@@ -26,6 +26,11 @@ void rusiuokime(std::deque<studentas>& good)
 bool compare(const studentas &lhs, const studentas &rhs)
 {return lhs.getpavarde()<rhs.getpavarde();}
 
+studentas::studentas(std::istream& is)
+{
+    read(is);
+}
+
 void studentas::read(std::istream &in)
 {
     int egz_paz=0, nd_paz=0;

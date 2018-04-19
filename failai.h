@@ -42,8 +42,8 @@ void nuskaitymas(char *argv[], T &studentai)
     getline(failas1,pirma_eil);
     while(!failas1.eof()) //skaitau faila iki pabaigos ir issisaugau visa info apie studenta
     {
-        studentas stud;
-        stud.read(failas1);
+        
+        studentas stud(failas1);
         studentai.push_back(stud);
     }
     failas1.close();
