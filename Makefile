@@ -1,5 +1,5 @@
 CC = clang++
-CXXFLAGS = -c -Wall -Weverything -Wno-c++98-compat -std=c++11
+CXXFLAGS = -c -Wall -Weverything -Wno-c++98-compat -std=c++11 -O3
 
 all: main.o galbalas.o sukurimas.o studentas.o
 	$(CC) $^
