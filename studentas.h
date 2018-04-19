@@ -14,10 +14,10 @@ private:
 public:
     studentas(std::istream& is);
     studentas(): galBalas_m(0), galBalas_v(0) {}
-    double getgalBalas_m() const {return galBalas_m;}
-    double getgalBalas_v() const {return galBalas_v;}
-    std::string getvardas() const {return vardas;}
-    std::string getpavarde() const {return pavarde;}
+    inline double getgalBalas_m() const {return galBalas_m;}
+    inline double getgalBalas_v() const {return galBalas_v;}
+    inline std::string getvardas() const {return vardas;}
+    inline std::string getpavarde() const {return pavarde;}
     double vidurkis();
 };
 
