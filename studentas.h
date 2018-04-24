@@ -19,6 +19,7 @@ public:
     inline std::string getvardas() const {return vardas;}
     inline std::string getpavarde() const {return pavarde;}
     double vidurkis();
+    friend std::ostream& operator << (std::ostream&, const studentas&);
 };
 
 bool check_good(studentas &s);
@@ -43,12 +44,12 @@ void irasykime(std::ostream &failas2, T &bad, T &good)
     failas2<<"Tie geresni:"<<std::endl<<std::left<<std::setw(20)<<"Pavardė"<<std::left<<std::setw(15)<<"Vardas"<<std::left<<std::setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<std::endl;
     for(auto it=good.begin(); it!=good.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
     {
-        failas2<<std::left<<std::setw(19)<<(*it).getpavarde()<<std::left<<std::setw(15)<<(*it).getvardas()<<std::left<<std::setw(20)<<std::setprecision(2) << std::fixed<<(*it).getgalBalas_v()<<(*it).getgalBalas_m()<<std::endl;
+        failas2<<(*it);
     }
     failas2<<std::endl<<"Vargšiukai:"<<std::endl<<std::left<<std::setw(20)<<"Pavardė"<<std::left<<std::setw(15)<<"Vardas"<<std::endl;
     for(auto it=bad.begin(); it!=bad.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
     {
-        failas2<<std::left<<std::setw(19)<<(*it).getpavarde()<<std::left<<std::setw(15)<<(*it).getvardas()<<std::endl;
+          failas2<<(*it);
     }
 }
 

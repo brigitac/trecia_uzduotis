@@ -53,3 +53,10 @@ void studentas::read(std::istream &in)
 
 double studentas::vidurkis()
 {return std::accumulate(v.begin(),v.end(),0.0)/v.size();}
+
+
+std::ostream& operator<<(std::ostream&out, const studentas&s)
+{
+    out<<std::left<<std::setw(19)<<s.pavarde<<std::left<<std::setw(15)<<s.vardas<<std::left<<std::setw(20)<<std::setprecision(2) << std::fixed<<s.galBalas_v<<s.galBalas_m<<std::endl;
+    return out;
+}
