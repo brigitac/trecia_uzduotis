@@ -19,6 +19,7 @@ public:
     inline std::string getvardas() const {return vardas;}
     inline std::string getpavarde() const {return pavarde;}
     double vidurkis();
+    bool operator < (const studentas &s) const { return pavarde < s.pavarde;}
     friend std::ostream& operator << (std::ostream&, const studentas&);
 };
 
@@ -27,8 +28,7 @@ bool check_bad(studentas &s);
 void rusiuokime(std::vector<studentas>& good);
 void rusiuokime(std::list<studentas>& good);
 void rusiuokime(std::deque<studentas>& good);
-bool compare(const studentas &lhs, const studentas &rhs);
-
+//bool compare(const studentas &lhs, const studentas &rhs);
 template<typename T>
 void strategija2(T &good, T &studentai)
 {

@@ -61,4 +61,6 @@ void irasymas(char *argv[], T &bad, T &good)
     irasykime(failas2, bad, good);
     failas2.close();
 }
+
+
 #endif

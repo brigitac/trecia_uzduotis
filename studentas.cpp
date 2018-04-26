@@ -15,16 +15,16 @@ bool check_bad(studentas &s)
 {return !check_good(s);}
 
 void rusiuokime(std::vector<studentas>& good)
-{sort(good.begin(), good.end(), compare);}
+{sort(good.begin(), good.end());}
 
 void rusiuokime(std::list<studentas>& good)
-{good.sort(compare);}
+{good.sort();}
 
 void rusiuokime(std::deque<studentas>& good)
-{sort(good.begin(), good.end(), compare);}
+{sort(good.begin(), good.end());}
 
-bool compare(const studentas &lhs, const studentas &rhs)
-{return lhs.getpavarde()<rhs.getpavarde();}
+//bool compare(const studentas &lhs, const studentas &rhs)
+//{return lhs.getpavarde()<rhs.getpavarde();}
 
 studentas::studentas(std::istream& is)
 {
