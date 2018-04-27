@@ -6,7 +6,11 @@
 #include <deque>
 #include <random>
 #include <fstream>
+#include <algorithm>
 #include "studentas.h"
+
+bool operator!=(const studentas& a, const studentas& b)
+{return !(a==b);}
 
 bool check_good(studentas &s)
 {return s.vidurkis()>=6;}
@@ -22,9 +26,6 @@ void rusiuokime(std::list<studentas>& good)
 
 void rusiuokime(std::deque<studentas>& good)
 {sort(good.begin(), good.end());}
-
-//bool compare(const studentas &lhs, const studentas &rhs)
-//{return lhs.getpavarde()<rhs.getpavarde();}
 
 studentas::studentas(std::istream& is)
 {
