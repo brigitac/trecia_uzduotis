@@ -4,3 +4,4 @@ bin/
 *.layout
 *.out
 *.o
+*Doxyfile
