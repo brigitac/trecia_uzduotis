@@ -1,7 +1,7 @@
 #ifndef STUDENTAS_H
 #define STUDENTAS_H
+#include <algorithm>
 #include "galbalas.h"
-
 class studentas
 {
 private:
@@ -30,24 +30,18 @@ void rusiuokime(std::vector<studentas>& good);
 void rusiuokime(std::list<studentas>& good);
 void rusiuokime(std::deque<studentas>& good);
 template<typename T>
-void strategija2(T &good, T &studentai)
+void irasykime(std::ostream &failas2, T &studentai)
 {
-    std::remove_copy_if(studentai.begin(),studentai.end(),std::back_inserter(good),check_bad);
-    studentai.erase(remove_if(studentai.begin(),studentai.end(),check_good), studentai.end());
-}
-
-template<typename T>
-void irasykime(std::ostream &failas2, T &bad, T &good)
-{
-    rusiuokime(good);
-    rusiuokime(bad);
+    rusiuokime(studentai);
+    typename T::iterator bound;
+    bound = std::stable_partition(studentai.begin(), studentai.end(), check_good);
     failas2<<"Tie geresni:"<<std::endl<<std::left<<std::setw(20)<<"Pavardė"<<std::left<<std::setw(15)<<"Vardas"<<std::left<<std::setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<std::endl;
-    for(auto it=good.begin(); it!=good.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
+    for(auto it=studentai.begin(); it!=bound; ++it) //irasineju rezultatus i kita faila apie visus mokinius
     {
         failas2<<(*it);
     }
     failas2<<std::endl<<"Vargšiukai:"<<std::endl<<std::left<<std::setw(20)<<"Pavardė"<<std::left<<std::setw(15)<<"Vardas"<<std::left<<std::setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<std::endl;
-    for(auto it=bad.begin(); it!=bad.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
+    for(auto it=bound; it!=studentai.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
     {
           failas2<<(*it);
     }

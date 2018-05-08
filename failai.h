@@ -13,11 +13,10 @@
 #include "studentas.h"
 using std::cout; using std::cin; using std::endl; using std::string; using std::setprecision; using std::fixed; using std::vector; using std::ifstream; using std::ofstream; using std::setw; using std::left; using std::exception; using std::cerr;
 template<typename T>
-void failai(char *argv[], T &good, T &studentai)
+void failai(char *argv[], T &studentai)
 {
     nuskaitymas(argv, studentai);
-    strategija2(good,studentai);
-    irasymas(argv, studentai, good);
+    irasymas(argv, studentai);
 }
 template<typename T>
 void nuskaitymas(char *argv[], T &studentai)
@@ -49,7 +48,7 @@ void nuskaitymas(char *argv[], T &studentai)
     failas1.close();
 }
 template<typename T>
-void irasymas(char *argv[], T &bad, T &good)
+void irasymas(char *argv[], T &studentai)
 {
     ofstream failas2;
     failas2.open(argv[2]);
@@ -58,7 +57,7 @@ void irasymas(char *argv[], T &bad, T &good)
         cerr << "Rezultatų failo atidaryti/sukurti nepavyko"<<endl;
         exit(1);
     }
-    irasykime(failas2, bad, good);
+    irasykime(failas2, studentai);
     failas2.close();
 }
 

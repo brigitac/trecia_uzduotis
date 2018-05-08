@@ -5,6 +5,7 @@
 #include <random>
 #include <fstream>
 #include <chrono>
+#include <algorithm>
 #include "galbalas.h"
 #include "failai.h"
 #include "sukurimas.h"
@@ -28,8 +29,7 @@ int main (int, char *argv[])
         {
             auto start = std::chrono::high_resolution_clock::now();
             vector<studentas>studentai;
-            vector<studentas>good;
-            failai(argv, good, studentai);
+            failai(argv, studentai);
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
             cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
@@ -38,8 +38,7 @@ int main (int, char *argv[])
         {
             auto start = std::chrono::high_resolution_clock::now();
             std::list<studentas>studentai;
-            std::list<studentas>good;
-            failai(argv, good, studentai);
+            failai(argv, studentai);
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
             cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
@@ -48,8 +47,7 @@ int main (int, char *argv[])
         {
             auto start = std::chrono::high_resolution_clock::now();
             std::deque<studentas>studentai;
-            std::deque<studentas>good;
-            failai(argv, good, studentai);
+            failai(argv, studentai);
             auto finish = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> elapsed = finish - start;
             cout << "Programos vykdymo laikas: " << elapsed.count() << " s\n";
