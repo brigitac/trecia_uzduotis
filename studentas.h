@@ -34,17 +34,19 @@ void irasykime(std::ostream &failas2, T &studentai)
 {
     rusiuokime(studentai);
     typename T::iterator bound;
+    T studentai2;
     bound = std::stable_partition(studentai.begin(), studentai.end(), check_good);
+    std::remove_copy_if(studentai.begin(),studentai.end(),std::back_inserter(studentai2),check_good);
+    studentai.erase(remove_if(studentai.begin(),studentai.end(),check_bad), studentai.end());
     failas2<<"Tie geresni:"<<std::endl<<std::left<<std::setw(20)<<"Pavardė"<<std::left<<std::setw(15)<<"Vardas"<<std::left<<std::setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<std::endl;
-    for(auto it=studentai.begin(); it!=bound; ++it) //irasineju rezultatus i kita faila apie visus mokinius
+    for(auto it=studentai.begin(); it!=studentai.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
     {
         failas2<<(*it);
     }
     failas2<<std::endl<<"Vargšiukai:"<<std::endl<<std::left<<std::setw(20)<<"Pavardė"<<std::left<<std::setw(15)<<"Vardas"<<std::left<<std::setw(20)<<"Galutinis-vidurkis"<<"Galutinis-mediana"<<std::endl;
-    for(auto it=bound; it!=studentai.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
+    for(auto it=studentai2.begin(); it!=studentai2.end(); ++it) //irasineju rezultatus i kita faila apie visus mokinius
     {
           failas2<<(*it);
     }
 }
-
 #endif
