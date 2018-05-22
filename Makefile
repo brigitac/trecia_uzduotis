@@ -13,3 +13,6 @@ studentas.o: studentas.cpp studentas.h
 	$(CC) $(CXXFLAGS) $<
 clean:
 	rm -f *.o $@
+
+
+
