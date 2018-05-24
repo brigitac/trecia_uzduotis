@@ -2,14 +2,9 @@
 #include<vector>
 #include "galbalas.cpp"
 
-TEST(galBaltestas, pagalvidurki)
+TEST(galBaltestas, vidurkis)
 {
-    EXPECT_DOUBLE_EQ(10, galBalas_vidurkis(std::vector<int>(10,10),10));
-}
-
-TEST (galBaltestas, pagalmediana)
-{
-    EXPECT_DOUBLE_EQ(10.0, galBalas_vidurkis(std::vector<int>(10,10.0),10.0));
+    EXPECT_DOUBLE_EQ(8.92, galBalas_vidurkis(std::vector<int>{10,10,5,9,10},9));
 }
 
 int main(int argc, char* argv[])
